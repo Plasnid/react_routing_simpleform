@@ -18,10 +18,7 @@ function App(){
   const [namer, setNamer] = useState('');
   
   const handleChange = (e) => {
-    console.log("heyo!");
-    console.log(e.target.value)
     setNamer(e.target.value);
-    console.log(`namer: is ${namer}`);
   }
   
   return (
