@@ -1,35 +1,22 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+import {withRouter} from 'react-router-dom';
 
-class NameForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+function NameForm(props){   
+    function goToThanks(e){
+        e.preventDefault();
+        console.log(props);
+        console.log("will we go anywhere?");
+        props.history.push('/thanks');
     }
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
-    handleSubmit(event) {
-        alert(`A name was submitted: ${this.state.value}`);
-        event.preventDefault();
-        document.location="/thanks";
-    }
-
-    render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={goToThanks}>
                 <label>
                 Name:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="text" onChange={props.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
         );
-    }
+    
 }
-export default NameForm;
+export default withRouter(NameForm);

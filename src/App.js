@@ -1,3 +1,6 @@
+import React, {useState} from 'react';
+
+//import ReactDOM from 'react-dom';
 //import logo from './logo.svg';
 //import './App.css';
 import NameForm from './NameForm';
@@ -11,38 +14,39 @@ import {
   Link
 } from "react-router-dom";
 
-function App() {
+function App(){
+  const [namer, setNamer] = useState('');
+  
+  const handleChange = (e) => {
+    console.log("heyo!");
+    console.log(e.target.value)
+    setNamer(e.target.value);
+    console.log(`namer: is ${namer}`);
+  }
+  
   return (
-    <div className="App">
-      <Router>
-      <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
-      <h1>Here we go again!</h1>
-        <Switch>
-            <Route exact path="/">
-              <NameForm />
-            </Route>
-            <Route path="/thanks">
-              <Thanks />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/topics">
-              <Topics />
-            </Route>
+    <Router>
+      <div className="App"> 
+        <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/topics">Topics</Link>
+            </li>
+          </ul>
+        <h1>Here we go again!</h1>
+          <Switch>
+            <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
+          <Route path="/thanks" children={<Thanks namer={namer}/>}/>
+            <Route path="/about" component={About} />
+            <Route path="/topics" component={Topics} />
           </Switch>
-        </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
