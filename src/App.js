@@ -38,7 +38,7 @@ function App(){
         <h1>Here we go again!</h1>
           <Switch>
             <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
-          <Route path="/thanks" children={<Thanks namer={namer}/>}/>
+            <Route path="/thanks" children={<Thanks namer={namer}/>}/>
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />
           </Switch>
