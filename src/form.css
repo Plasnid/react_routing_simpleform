@@ -1,3 +1,4 @@
+
 label{
     font-size: 1.5em;
     font-weight: bold;
@@ -5,6 +6,13 @@ label{
 input[type="text"]{
     height: 1.5em;
     margin: 0 10px 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 400px;
+}
+form>section{
+    margin-bottom: 30px;
 }
 input[type="submit"]{
     background-color: #62529c;
