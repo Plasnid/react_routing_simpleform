@@ -1,0 +1,15 @@
+#onZerkblatt ul{
+    list-style-type: none;
+    display: inline-block;
+
+}
+#onZerkblatt li{
+    font-size: 1.5em;
+    text-align: left;
+}
+#onZerkblatt li:nth-child(even){
+    font-weight:bold;
+}
+#onZerkblatt li:nth-child(odd){
+    color:darkgreen;
+}
