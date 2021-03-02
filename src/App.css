@@ -24,6 +24,21 @@
   color: white;
 }
 
+nav{
+  padding: 5px;
+  background: linear-gradient(#a8edea, #fed6e3);
+}
+nav>ul{
+  list-style-type: none;
+  display: flex;
+}
+nav>ul>li{
+  flex: 1;
+  font-weight: bold;
+  font-size: 2em;
+  text-decoration: underline;
+}
+
 .App-link {
   color: #61dafb;
 }

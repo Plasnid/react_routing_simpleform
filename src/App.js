@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 //import ReactDOM from 'react-dom';
 //import logo from './logo.svg';
-//import './App.css';
+import './App.css';
 import NameForm from './NameForm';
 import Thanks from './Thanks';
 import Topics from './Topics';
@@ -23,8 +23,9 @@ function App(){
   
   return (
     <Router>
-      <div className="App"> 
-        <ul>
+      <div className="App">
+        <nav>
+          <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -35,13 +36,14 @@ function App(){
               <Link to="/topics">Topics</Link>
             </li>
           </ul>
+        </nav>
         <h1>Here we go again!</h1>
-          <Switch>
-            <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
-            <Route path="/thanks" children={<Thanks namer={namer}/>}/>
-            <Route path="/about" component={About} />
-            <Route path="/topics" component={Topics} />
-          </Switch>
+        <Switch>
+          <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
+          <Route path="/thanks" children={<Thanks namer={namer}/>}/>
+          <Route path="/about" component={About} />
+          <Route path="/topics" component={Topics} />
+        </Switch>
       </div>
     </Router>
   );
